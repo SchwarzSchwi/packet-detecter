@@ -1,0 +1,28 @@
+{
+  "engine": "suricata-derived-packet-subset",
+  "version": "1.0.0",
+  "upstream_version": "uploaded 9.0.0-dev snapshot",
+  "status": "ok",
+  "error": "",
+  "mode": "pcap",
+  "input": "samples/demo.pcap",
+  "rules_source": "rules/icmp-size-rate.rules",
+  "total_packets": 34,
+  "decoded_packets": 34,
+  "skipped_packets": 0,
+  "alerts": 5,
+  "alerted_packets": 5,
+  "packet_limit": 0,
+  "include_outgoing": false,
+  "promiscuous": false,
+  "checksums_validated": false,
+  "tracking_capacity": 65536,
+  "kernel_received": null,
+  "kernel_dropped": null,
+  "skipped_reasons": {
+  },
+  "rules": [
+    {"sid": 1000001, "rev": 1, "msg": "Large frequent ICMP echo", "matched_packets": 22, "alerts": 5}
+  ],
+  "scope": "IPv4 TCP/UDP/selected ICMP packet predicates; no stream/app-layer detection or reassembly; not the full Suricata engine"
+}

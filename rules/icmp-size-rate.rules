@@ -1,0 +1,3 @@
+# ICMP echo request AND payload > 800 bytes AND >10 qualifying packets
+# from the same source in a 1-second fixed window. Alerts begin at match 11.
+alert icmp any any -> any any (msg:"Large frequent ICMP echo"; itype:8; dsize:>800; detection_filter:track by_src, count 10, seconds 1; sid:1000001; rev:1;)

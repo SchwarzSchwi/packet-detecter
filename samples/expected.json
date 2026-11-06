@@ -1,0 +1,19 @@
+{
+  "synthetic_fixture": true,
+  "description": "Generated packets; expected rule alerts, not measured detection accuracy.",
+  "total_packets": 34,
+  "decoded_packets": 34,
+  "skipped_packets": 0,
+  "matching_packets": 22,
+  "alerts": 5,
+  "alert_packet_indices": [
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "sid": 1000001,
+  "rule": "alert icmp any any -> any any (msg:\"Large frequent ICMP echo\"; itype:8; dsize:>800; detection_filter:track by_src, count 10, seconds 1; sid:1000001; rev:1;)",
+  "semantics": "Only matching requests count. The 11th and later in the inclusive fixed 1s window alert."
+}

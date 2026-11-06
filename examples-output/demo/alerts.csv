@@ -1,0 +1,6 @@
+packet_index,timestamp,src_ip,dst_ip,protocol,src_port,dst_port,payload_bytes,sid,rev,msg,window_count
+23,1793923210.500000000,10.0.0.10,10.0.0.20,ICMP,0,0,900,1000001,1,"Large frequent ICMP echo",11
+24,1793923210.550000000,10.0.0.10,10.0.0.20,ICMP,0,0,900,1000001,1,"Large frequent ICMP echo",12
+25,1793923210.600000000,10.0.0.10,10.0.0.20,ICMP,0,0,900,1000001,1,"Large frequent ICMP echo",13
+26,1793923210.650000000,10.0.0.10,10.0.0.20,ICMP,0,0,900,1000001,1,"Large frequent ICMP echo",14
+27,1793923210.700000000,10.0.0.10,10.0.0.20,ICMP,0,0,900,1000001,1,"Large frequent ICMP echo",15

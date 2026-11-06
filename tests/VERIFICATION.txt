@@ -1,0 +1,46 @@
+Verification date: 2026-11-06
+
+1. Linux x86-64 static executable
+   Command: python3 tests/test_detector.py --binary bin/packet-detector
+   Result: 21 tests passed, zero failures, zero errors.
+
+2. AddressSanitizer + UndefinedBehaviorSanitizer build
+   Command: make sanitize
+   Compiler options include -fsanitize=address,undefined.
+   Result: 21 tests passed, zero failures, zero errors; no ASan/UBSan reports.
+   ASAN_OPTIONS=detect_leaks=0: this run does not claim a leak-sanitizer check.
+
+3. Demonstration fixture
+   samples/demo.pcap contains 34 synthetic packets with valid IPv4/ICMP checksums.
+   The default example rule matches 22 packets before its frequency filter.
+   It produces exactly 5 alerts, for capture packet numbers 23,24,25,26,27.
+   Their frequency-window counts are 11,12,13,14,15.
+   These are expected outputs on generated examples, not measured attack
+   detection accuracy and not a comparison with the full Suricata engine.
+
+4. Coverage
+   Payload-size boundaries and exclusive ranges; count+1 alert onset; inclusive
+   time-window endpoint; ignored nonmatching packets; independent source,
+   destination and per-rule counters; IPv4/TCP header options; UDP
+   declared length; ICMP type/code; address/port filters and both directions;
+   little/big endian and micro/nanosecond PCAP; Ethernet/VLAN/SLL/SLL2/raw/NULL;
+   fragment/IPv6/unsupported-ICMP skips; malformed captures and packet headers;
+   unsupported or malformed rules; CSV/JSON quoting; empty input; packet limit;
+   regression of capture timestamps; explicit rejection of unsupported
+   by_rule/by_both/by_flow tracking and unique_on distinct-port counting;
+   exhaustion of 65,536 active frequency states after a preceding rule has
+   already emitted an alert, preserving all 65,537 packet rows/alerts/counts
+   while returning an error and marking the final packet rate_state_capacity.
+
+   Scope correction: the uploaded detection_filter parser accepts by_src,
+   by_dst and by_flow, despite broader options mentioned in its documentation.
+   This executable supports only by_src/by_dst. Earlier tests of by_rule and
+   by_both were replaced by rejection checks after comparing the actual parser.
+
+5. Boundary of this verification
+   All packet processing tests use offline generated PCAP files. No packets
+   were sent onto a network. Actual AF_PACKET live acquisition was not tested
+   because this execution environment has no CAP_NET_RAW capability.
+   Interface enumeration was verified, including the read-only sysfs fallback
+   for a restricted netlink query. A live-capture attempt on lo exited with a
+   clear Operation not permitted/CAP_NET_RAW diagnostic and zero packets.

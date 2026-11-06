@@ -1,0 +1,44 @@
+{
+  "upstream_project": "Suricata / Open Information Security Foundation",
+  "upstream_url": "https://github.com/OISF/suricata",
+  "source_archive": "suricata-main.zip (user-supplied)",
+  "source_archive_sha256": "6087edf21b5255816de50ee2e14c13bcd1a97dc7a5bda583d49a235ca5b2cc7e",
+  "source_revision": "No Git commit metadata in the uploaded archive; original file hashes below identify the source.",
+  "license": "GPL-2.0-only",
+  "adaptation_date": "2026-11-06",
+  "original_files_sha256": {
+    "COPYING": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "LICENSE": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "rust/src/detect/uint.rs": "a284d200cace2a53d59de4e3b55fd6285b2e73f982249eeabba2e3fcf24221c4",
+    "src/decode-icmpv4.c": "21955d650d1f4ef95e687a4e4632c78b7d1d09003274a4651f55fbfa56787a2d",
+    "src/detect-detection-filter.c": "d59cade2adbc72bb638743b5d04d9e621aa9cba9c43e1803ccdeba495883ca3b",
+    "src/detect-dsize.c": "f7cc566dd8568ac487df6172af82fca8fece8b5b0c2f0faad64921cb454bae7f",
+    "src/detect-engine-threshold.c": "d9ae587d12b23cc9a47c5654c4793492cea92b5a586ea35fd5da947c165b3be0",
+    "src/detect-engine-uint.c": "57299d6482864e06d068d85a662cf8b1674442a2bba532f43248dc688e5f31d5",
+    "src/detect-icode.c": "72c9bb4c6a70b5154fc8099b519fbbbd7387a5aef32c8f568038ece25fe088c6",
+    "src/detect-itype.c": "7424f8bccd3b809dc11753ab02e4821314142c156f8379030e63dbcca8d07412"
+  },
+  "extracted_functions": [
+    {
+      "source": "src/detect-dsize.c",
+      "function": "DetectDsizeMatch",
+      "first_line": 89,
+      "last_line": 104,
+      "function_sha256": "0f14565cbd33f3627a454e9a10f4bff430c3916fba9b88988a735230d0520502"
+    },
+    {
+      "source": "src/detect-itype.c",
+      "function": "DetectITypeMatch",
+      "first_line": 84,
+      "last_line": 102,
+      "function_sha256": "56e464bae2e7c98358de90ca744be0be11fa7f49074f39d81c62658d37b06b2c"
+    },
+    {
+      "source": "src/detect-icode.c",
+      "function": "DetectICodeMatch",
+      "first_line": 87,
+      "last_line": 105,
+      "function_sha256": "a1d236880872a8e4b03a02f08d3fd39c19d7c1e9b7d55a624274c1939297a554"
+    }
+  ]
+}

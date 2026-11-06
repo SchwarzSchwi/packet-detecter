@@ -1,0 +1,29 @@
+패킷 감지기 — Linux x86-64
+
+실행파일: bin/packet-detector
+한국어 설명: README_KO.md
+
+압축을 푼 packet-detector 디렉터리에서:
+
+  chmod +x bin/packet-detector
+  ./bin/packet-detector -r samples/demo.pcap -l out-demo
+
+예상 출력: Packets: 34 | decoded: 34 | skipped: 0 | alerts: 5
+
+실시간 수신:
+
+  ./bin/packet-detector --list-interfaces
+  sudo ./bin/packet-detector -i eth0 -l out-live
+
+eth0는 실제 수신 인터페이스 이름으로 바꾸십시오.
+종료는 Ctrl+C입니다. 결과는 지정한 디렉터리의 CSV와 JSON으로 저장됩니다.
+
+Linux 실행파일입니다. Windows의 더블클릭용 .exe가 아닙니다.
+Ubuntu/Kali 가상머신 등 Linux x86-64 환경에서 실행하십시오.
+
+Suricata 전체 엔진이 아니라 dsize/itype/icode 원본 함수와
+일반 detection_filter 동작을 독립 실행하도록 추출·이식한 부분집합입니다.
+지원하지 않는 규칙은 오류로 거부합니다.
+
+PCAP 분석은 실제 검증했으며, 실시간 수신은 이 제작 환경의 권한 제한으로
+검증하지 못했습니다. 전체 검증 범위는 tests/VERIFICATION.txt에 있습니다.
